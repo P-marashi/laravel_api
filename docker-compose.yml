@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  laravel-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel-app
+    volumes:
+      - ./storage:/var/www/storage
+      - ./bootstrap/cache:/var/www/bootstrap/cache
+    ports:
+      - "7080:7080"  # Map host port 7080 to container port 8000
+    networks:
+      - shared-network  # Use the shared network
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=laravel_api
+      - DB_USERNAME=laravel
+      - DB_PASSWORD=reza1381
+
+  mysql:
+    image: mysql:5.7 
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: laravel_api
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: reza1381
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - shared-network  # Use the shared network
+
+networks:
+  shared-network:
+    external: true
+
+volumes:
+  mysql_data:
+    driver: local
