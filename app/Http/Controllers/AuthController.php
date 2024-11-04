@@ -25,6 +25,7 @@ class AuthController extends ApiController
         }
 
         $user = User::where('cellphone', $request->cellphone)->first();
+        $sender = "1000689696";
         $receptor = $request->cellphone;
         $OTPCode = mt_rand(100000, 999999);
         $loginToken = Hash::make('DCDCojncd@cdjn%!!ghnjrgtn&&');
@@ -32,9 +33,8 @@ class AuthController extends ApiController
         $message = "Your OTP code is: $OTPCode";
         // Instantiate the Kavenegar API
         $api = new \Kavenegar\KavenegarApi("6D696535625647414B686336705A35696D47596369356B412B6B514A5A506943582B466E693463704F33413D");
-
         // Send the OTP message
-        $api->Send($receptor, $message);
+        $api->Send($sender, $receptor, $message);
 
         if ($user) {
             $user->update([
