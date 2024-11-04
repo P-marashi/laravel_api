@@ -125,6 +125,10 @@ class ComposerStaticInit6cd4422fe94e1b9f7ab96f463c6328db
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
         ),
+        'K' => 
+        array (
+            'Kavenegar\\' => 10,
+        ),
         'I' => 
         array (
             'Illuminate\\Support\\' => 19,
@@ -189,8 +193,8 @@ class ComposerStaticInit6cd4422fe94e1b9f7ab96f463c6328db
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'Whoops\\' => 
         array (
@@ -346,8 +350,8 @@ class ComposerStaticInit6cd4422fe94e1b9f7ab96f463c6328db
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -413,6 +417,10 @@ class ComposerStaticInit6cd4422fe94e1b9f7ab96f463c6328db
         array (
             0 => __DIR__ . '/..' . '/laravel/sail/src',
         ),
+        'Kavenegar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kavenegar/php/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -457,8 +465,8 @@ class ComposerStaticInit6cd4422fe94e1b9f7ab96f463c6328db
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
         'Faker\\' => 
         array (
@@ -2653,6 +2661,12 @@ class ComposerStaticInit6cd4422fe94e1b9f7ab96f463c6328db
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Kavenegar\\Enums\\ApiLogs' => __DIR__ . '/..' . '/kavenegar/php/src/Enums/ApiLogs.php',
+        'Kavenegar\\Enums\\General' => __DIR__ . '/..' . '/kavenegar/php/src/Enums/General.php',
+        'Kavenegar\\Exceptions\\ApiException' => __DIR__ . '/..' . '/kavenegar/php/src/Exceptions/ApiException.php',
+        'Kavenegar\\Exceptions\\BaseRuntimeException' => __DIR__ . '/..' . '/kavenegar/php/src/Exceptions/BaseRuntimeException.php',
+        'Kavenegar\\Exceptions\\HttpException' => __DIR__ . '/..' . '/kavenegar/php/src/Exceptions/HttpException.php',
+        'Kavenegar\\KavenegarApi' => __DIR__ . '/..' . '/kavenegar/php/src/KavenegarApi.php',
         'Laravel\\Sail\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/InstallCommand.php',
         'Laravel\\Sail\\Console\\PublishCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/PublishCommand.php',
         'Laravel\\Sail\\SailServiceProvider' => __DIR__ . '/..' . '/laravel/sail/src/SailServiceProvider.php',
