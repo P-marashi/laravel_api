@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Kavenegar;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Notifications\OTPSms;
@@ -29,13 +30,9 @@ class AuthController extends ApiController
         $receptor = $request->cellphone;
         $OTPCode = mt_rand(100000, 999999);
         $loginToken = Hash::make('DCDCojncd@cdjn%!!ghnjrgtn&&');
-        
         $message = "Your OTP code is: $OTPCode";
-        // Instantiate the Kavenegar API
-        $api = new \Kavenegar\KavenegarApi("6D696535625647414B686336705A35696D47596369356B412B6B514A5A506943582B466E693463704F33413D");
-        // Send the OTP message
-        $api->Send($sender, $receptor, $message);
-
+        Kavenegar::Send($sender, $receptor, $message);
+        
         if ($user) {
             $user->update([
                 'otp' => $OTPCode,

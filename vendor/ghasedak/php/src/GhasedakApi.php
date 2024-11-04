@@ -9,7 +9,12 @@ class GhasedakApi
 {
     protected $apiKey;
     private $base_url;
-
+    private $request_method = null;
+    private $verify_type = 1;
+    const VERIFY_TEXT_TYPE = 1;
+    const VERIFY_VOICE_TYPE = 2;
+    const MESSAGE_ID_TYPE = 1;
+    const CHECK_ID_TYPE = 2;
     const VERSION = "2.0.0";
 
     public function __construct($apiKey, $url = 'http://api.ghasedak.me/v2/')
@@ -26,8 +31,40 @@ class GhasedakApi
         $this->base_url = $url;
     }
 
+    /**
+     * @param  string  $request_method
+     *
+     * @return $this
+     */
+    public function setRequestMethod($request_method = 'GET')
+    {
+        if (!in_array($request_method, ['GET', 'POST'])) {
+            new \Exception("'$request_method' method doesn't support !");
+        }
+        $this->request_method = $request_method;
+        return $this;
+    }
+
+    /**
+     * @param  \Ghasedak\int  $type
+     *
+     * @return $this
+     * @throws \Exception
+     */
+    public function setVerifyType($type)
+    {
+        if (!is_int($type)) {
+            throw new \Exception("the 'verity type' must be integer");
+        }
+        $this->verify_type = $type;
+        return $this;
+    }
+
     protected function runCurl($path, $parameters = null, $method = 'POST')
     {
+        if ($this->request_method) {
+            $method = $this->request_method;
+        }
         $headers = array(
             'apikey:' . $this->apiKey,
             'Accept: application/json',
@@ -145,14 +182,14 @@ class GhasedakApi
         return $this->runCurl($path, $params);
     }
 
-    public function Status($id, $type)
+    public function Status($ids, $type = self::MESSAGE_ID_TYPE)
     {
-        if (is_array($id)) {
-            $id = implode(",", $id);
+        if (is_array($ids)) {
+            $ids = implode(",", $ids);
         }
         $path = 'sms/status';
         $params = array(
-            "id" => $id,
+            "id" => $ids,
             "type" => $type
         );
         return $this->runCurl($path, $params, 'GET');
