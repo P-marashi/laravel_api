@@ -31,7 +31,13 @@ class AuthController extends ApiController
         $OTPCode = mt_rand(100000, 999999);
         $loginToken = Hash::make('DCDCojncd@cdjn%!!ghnjrgtn&&');
         $message = "Your OTP code is: $OTPCode";
-        Kavenegar::Send($sender, $receptor, $message);
+        try {
+            // Send the OTP message
+            Kavenegar::Send($sender, $receptor, $message);
+        } catch (\Exception $e) {
+            // Handle any exception
+            return $this->errorResponse('Unable to send OTP. ' . $e->getMessage(), 500);
+        }
         
         if ($user) {
             $user->update([
