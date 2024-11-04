@@ -26,7 +26,7 @@ class AuthController extends ApiController
         }
 
         $user = User::where('cellphone', $request->cellphone)->first();
-        $sender = "1000689696";
+        $sender = "10004346";
         $receptor = $request->cellphone;
         $OTPCode = mt_rand(100000, 999999);
         $loginToken = Hash::make('DCDCojncd@cdjn%!!ghnjrgtn&&');
