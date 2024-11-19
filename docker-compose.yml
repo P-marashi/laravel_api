@@ -10,7 +10,7 @@ services:
       - ./storage:/var/www/storage
       - ./bootstrap/cache:/var/www/bootstrap/cache
     ports:
-      - "7080:7080"  # Map host port 7080 to container port 8000
+      - "8010:8010"  # Map host port 7080 to container port 8000
     networks:
       - shared-network  # Use the shared network
     depends_on:

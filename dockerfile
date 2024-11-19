@@ -39,7 +39,7 @@ RUN chown -R www-data:www-data /var/www \
 RUN php artisan key:generate
 
 # Expose port for Laravel's built-in server
-EXPOSE 7080
+EXPOSE 8010
 
 # Set the command to run Laravel's built-in server
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=7080"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8010"]
