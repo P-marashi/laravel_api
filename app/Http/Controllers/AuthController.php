@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Validator;
+use Kavenegar;
 
 class AuthController extends ApiController
 {
@@ -40,6 +41,12 @@ class AuthController extends ApiController
                 'login_token' => $loginToken
             ]);
         }
+        $receptor = $request->cellphone;
+        $token = $OTPCode;
+        $token2 = "";
+        $token3 = "";
+        $template="login";
+        $result = Kavenegar::VerifyLookup($receptor, $token, $token2, $token3, $template, $type = null);
         $user->notify(new OTPSms($OTPCode));
 
         return $this->successResponse(['login_token' => $loginToken], 200);
